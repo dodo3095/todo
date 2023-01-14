@@ -1,5 +1,5 @@
 function App() {
-    const { Container, Row, Col, Navbar, Nav } = ReactBootstrap;
+    const { Container, Row, Col } = ReactBootstrap;
     return (
         <Container>
 //             <Nav className="mr-auto">
