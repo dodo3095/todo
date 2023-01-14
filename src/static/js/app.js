@@ -1,7 +1,11 @@
 function App() {
-    const { Container, Row, Col } = ReactBootstrap;
+    const { Container, Row, Col, Navbar, Nav } = ReactBootstrap;
     return (
         <Container>
+            <Nav className="mr-auto">
+                <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
+                </Nav>
+            </Navbar >
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <TodoListCard />
@@ -67,16 +71,16 @@ function TodoListCard() {
     );
 }
 
-function Addheader({ onNewItem }) {
-    const { Navbar, Nav } = ReactBootstrap;
+// function Addheader({ onNewItem }) {
+//     const { Navbar, Nav } = ReactBootstrap;
 
-    return (
-        <Nav className="mr-auto">
-         <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
-         </Nav>
-        </Navbar >
-        );
-}
+//     return (
+//         <Nav className="mr-auto">
+//          <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
+//          </Nav>
+//         </Navbar >
+//         );
+// }
 
 function AddItemForm({ onNewItem }) {
     const { Form, InputGroup, Button } = ReactBootstrap;
