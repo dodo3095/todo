@@ -67,6 +67,17 @@ function TodoListCard() {
     );
 }
 
+function Addheader({ onNewItem }) {
+    const { Navbar, Nav } = ReactBootstrap;
+
+    return (
+        <Nav className="mr-auto">
+         <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
+         </Nav>
+        </Navbar >
+        );
+}
+
 function AddItemForm({ onNewItem }) {
     const { Form, InputGroup, Button } = ReactBootstrap;
 
