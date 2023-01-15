@@ -2,10 +2,6 @@ function App() {
     const { Container, Row, Col } = ReactBootstrap;
     return (
         <Container>
-//             <Nav className="mr-auto">
-//                 <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
-//                 </Nav>
-//             </Navbar >
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <TodoListCard />
@@ -55,7 +51,7 @@ function TodoListCard() {
 
     return (
         <React.Fragment>
-            <h1> ToDo App by Aki Ando </h1>
+             <h1> ToDo App by Aki Ando </h1>        
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
@@ -71,17 +67,6 @@ function TodoListCard() {
         </React.Fragment>
     );
 }
-
-// function Addheader({ onNewItem }) {
-//     const { Navbar, Nav } = ReactBootstrap;
-
-//     return (
-//         <Nav className="mr-auto">
-//          <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
-//          </Nav>
-//         </Navbar >
-//         );
-// }
 
 function AddItemForm({ onNewItem }) {
     const { Form, InputGroup, Button } = ReactBootstrap;
