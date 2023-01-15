@@ -2,9 +2,9 @@ function App() {
     const { Container, Row, Col, Navbar, Nav } = ReactBootstrap;
     return (
         <Container>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light" variant="light">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
+                    <Nav.Link>toDO App by dodo3095</Nav.Link>
                 </Nav>
             </Navbar >
             <Row>
