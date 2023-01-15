@@ -4,12 +4,11 @@ function App() {
         <Container>
             <Navbar bg="dark" variant="dark">
                 <Nav className="mr-auto">
-                    <Nav.Link>toDO App by dodo3095</Nav.Link>
+                    <Nav.Link>ToDO App by dodo3095</Nav.Link>
                 </Nav>
             </Navbar >
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
-//                     <h1>ToDo App by Aki Ando</h1>
                     <TodoListCard />
                 </Col>
             </Row>
@@ -51,7 +50,6 @@ function TodoListCard() {
 
     return (
         <React.Fragment>
-//             <h1> ToDo App by Aki Ando </h1>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
