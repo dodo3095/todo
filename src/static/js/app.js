@@ -1,7 +1,12 @@
 function App() {
-    const { Container, Row, Col } = ReactBootstrap;
+    const { Container, Row, Col, Navbar, Nav } = ReactBootstrap;
     return (
         <Container>
+            <Navbar bg="dark" variant="dark">
+                <Nav className="mr-auto">
+                    <Nav.Link href="#toDO App by dodo3095">Home</Nav.Link>
+                </Nav>
+            </Navbar >
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <TodoListCard />
@@ -10,23 +15,19 @@ function App() {
         </Container>
     );
 }
-
 function TodoListCard() {
     const [items, setItems] = React.useState(null);
-
     React.useEffect(() => {
         fetch('/items')
             .then(r => r.json())
             .then(setItems);
     }, []);
-
     const onNewItem = React.useCallback(
         newItem => {
             setItems([...items, newItem]);
         },
         [items],
     );
-
     const onItemUpdate = React.useCallback(
         item => {
             const index = items.findIndex(i => i.id === item.id);
@@ -38,7 +39,6 @@ function TodoListCard() {
         },
         [items],
     );
-
     const onItemRemoval = React.useCallback(
         item => {
             const index = items.findIndex(i => i.id === item.id);
@@ -46,11 +46,11 @@ function TodoListCard() {
         },
         [items],
     );
-
     if (items === null) return 'Loading...';
 
     return (
-        <React.Fragment>  
+        <React.Fragment>
+            <h1> ToDo App by Aki Ando </h1>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
@@ -69,10 +69,8 @@ function TodoListCard() {
 
 function AddItemForm({ onNewItem }) {
     const { Form, InputGroup, Button } = ReactBootstrap;
-
     const [newItem, setNewItem] = React.useState('');
     const [submitting, setSubmitting] = React.useState(false);
-
     const submitNewItem = e => {
         e.preventDefault();
         setSubmitting(true);
@@ -88,7 +86,6 @@ function AddItemForm({ onNewItem }) {
                 setNewItem('');
             });
     };
-
     return (
         <Form onSubmit={submitNewItem}>
             <InputGroup className="mb-3">
@@ -113,10 +110,8 @@ function AddItemForm({ onNewItem }) {
         </Form>
     );
 }
-
 function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
-
     const toggleCompletion = () => {
         fetch(`/items/${item.id}`, {
             method: 'PUT',
@@ -129,13 +124,11 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
             .then(r => r.json())
             .then(onItemUpdate);
     };
-
     const removeItem = () => {
         fetch(`/items/${item.id}`, { method: 'DELETE' }).then(() =>
             onItemRemoval(item),
         );
     };
-
     return (
         <Container fluid className={`item ${item.completed && 'completed'}`}>
             <Row>
@@ -176,5 +169,4 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
         </Container>
     );
 }
-
 ReactDOM.render(<App />, document.getElementById('root'));
